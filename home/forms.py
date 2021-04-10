@@ -1,0 +1,6 @@
+from django import forms
+
+class contacto_form(forms.from):
+    correo = forms.EmailField(widget = forms.TextInput())
+    titulo = forms.CharField(widget = forms.TextInput())
+    texto = forms.CharField(widget = forms.TextInput())
