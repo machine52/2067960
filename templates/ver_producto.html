@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+    <a href="{% url 'agregar_producto' %}" class="btn-primary">Agregar un Producto</a>
+    <a href="{% url 'agregar_marca' %}" class="btn-primary">Agregar un Marca</a>
+    <a href="{% url 'agregar_categoria' %}" class="btn-primary">Agregar un Categoria</a>
+
+    <h1>ver detalle producto</h1>
+    <p>{{ detalle.id }}</p>
+    <p>{{ detalle.nombre }}</p>
+    <p>{{ detalle.precio }}</p>
+    <p>{{ detalle.marca }}</p>
+
+    <p>{{ detalle.categoria }}</p>
+    
+
+{% endblock contenido %}

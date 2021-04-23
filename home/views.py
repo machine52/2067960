@@ -44,3 +44,35 @@ def agregar_producto_view(request):
         formulario = agregar_producto_form()
 
     return render (request, 'agregar_producto.html', locals())
+
+def agregar_marca_view(request):
+
+    if request.method == 'POST':
+        formulario = agregar_marca_form(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('/marca/')
+    else:#GET        
+        formulario = agregar_marca_form()
+
+    return render (request, 'agregar_marca.html', locals())
+
+def agregar_categoria_view(request):
+
+    if request.method == 'POST':
+        formulario = agregar_categoria_form(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('/categoria/')
+    else:#GET        
+        formulario = agregar_categoria_form()
+
+    return render (request, 'agregar_categoria.html', locals())
+
+def ver_producto_view (request):
+    
+    detalle = producto.objects.get(id = id_prod) #SELECt * from 'home_producto' WHERE id == id_prod
+
+    return render(request, 'ver_producto.html', locals())
+
+
