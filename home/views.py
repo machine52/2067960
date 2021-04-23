@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import *
+from .models import *
 # Create your views here.
 def inicio_view(request):
     msg = 'esta es la pagina inicio'
@@ -9,6 +10,9 @@ def about_view(request):
     return render(request, 'about.html')
 
 def contacto_view(request):
+    c = ""
+    a = ""
+    t = ""
     enviado = False
     if request.method == 'POST':
         formulario = contacto_form(request.POST)
@@ -24,3 +28,19 @@ def contacto_view(request):
 
 def servicios_view(request):
     return render(request, "servicios.html" , locals())
+
+def productos_view(request):
+    productos = producto.objects.filter() # SELECT = from procduto
+    return render(request, "productos.html", locals())
+
+def agregar_producto_view(request):
+
+    if request.method == 'POST':
+        formulario = agregar_producto_form(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('/productos/')
+    else:#GET        
+        formulario = agregar_producto_form()
+
+    return render (request, 'agregar_producto.html', locals())

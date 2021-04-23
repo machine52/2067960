@@ -5,16 +5,16 @@ class Categoria(models.Model):
     nombre            = models.CharField(max_length = 100) 
     descripcion       = models.TextField(max_length = 500)
 
-    def _str_ (self):
+    def __str__ (self):
         return self.nombre
 
 class Marca (models.Model):
     nombre           = models.CharField(max_length = 100)
 
-    def _str_ (self):
+    def __str__ (self):
         return self.nombre
 
-class Producto (models.Model):
+class producto (models.Model):
     nombre      = models.CharField(max_length = 100)
     descripcion = models.TextField(max_length = 500)
     precio      = models.IntegerField()
@@ -24,5 +24,5 @@ class Producto (models.Model):
     marca       = models.ForeignKey(Marca, models.PROTECT)
     categoria   = models.ManyToManyField(Categoria, null=True, blank=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.nombre  + str(self.precio)      
