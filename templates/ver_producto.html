@@ -11,7 +11,12 @@
     <p>{{ detalle.precio }}</p>
     <p>{{ detalle.marca }}</p>
 
-    <p>{{ detalle.categoria }}</p>
+    <p>{% for c in detalle.categorias.all %}
+        {{ c }}}
+        {% endfor %}
+    </p>
+            
     
+    <a href="{% url 'productos_view' %}">regresar a la lista de productos</a>
 
 {% endblock contenido %}

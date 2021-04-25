@@ -11,5 +11,6 @@ urlpatterns = [
     path('agregar_marca/', agregar_marca_view, name='agregar_marca'),
     path('agregar_categoria/', agregar_categoria_view, name='agregar_categoria'),
     path('ver_producto/<int:id_prod>', ver_producto_view, name='ver_producto'),
-    
+    path('eliminar_producto/<int:id_prod>', eliminar_producto_view, name='eliminar_producto'),
+    path('editar_producto/<int:id_prod>', editar_producto_view, name='editar_producto'),
 ]

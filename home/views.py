@@ -69,10 +69,24 @@ def agregar_categoria_view(request):
 
     return render (request, 'agregar_categoria.html', locals())
 
-def ver_producto_view (request):
+def ver_producto_view (request, id_prod):
     
     detalle = producto.objects.get(id = id_prod) #SELECt * from 'home_producto' WHERE id == id_prod
 
     return render(request, 'ver_producto.html', locals())
 
+def eliminar_producto_view ( request, id_prod):
+    objeto = Producto.objects.get(id = id_prod)
+    objeto.delete()
+    return redirect('/productos/')
 
+def editar_producto_view (request, id_prod):
+    objeto = producto.objects.get(id = id_prod)
+    if request.method == 'POST':
+        formulario = agregar_producto_form(request.POST, request.FILES, instance = objeto)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('/productos/')
+    else:        
+        formulario = agregar_producto_form(instance = objeto)
+    return render(request, 'agregar_producto.html', locals())
