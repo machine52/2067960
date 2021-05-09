@@ -25,7 +25,7 @@ SECRET_KEY = '7*k7=7!lwfjc4)1ngp9)-_-$tnb4ea-=j1t^d=c6tv_*jtsw9p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tiendaz9.herokuapp.com']
 
 
 # Application definition
@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'webservices',
+    'rest_framework',
+    'gunicorn',
+    'psycopg2',
 ]
 
 MIDDLEWARE = [
@@ -74,14 +78,25 @@ WSGI_APPLICATION = 'tienda.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'tienda',
+#        'USER': 'root',
+#        'PASSWORD': '',
+#        'HOST': '127.0.0.1',
+#        'PORT': '3306'
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.psycopg2',
         'NAME': 'tienda',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'USER': 'xarrahbgjxatcm',
+        'PASSWORD': 'f10221e097a7acdabc1864770056e1027715ba5eb58193e5371002e5f38ca9a4',
+        'HOST': 'ec2-54-161-239-198.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -123,10 +138,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-#STATIC_ROOT = "static"
+#STATICFILES_DIRS = [
+#    BASE_DIR / "static",
+#]
+STATIC_ROOT = "static"
 
 # servidor de medios
 MEDIA_URL = '/media/'

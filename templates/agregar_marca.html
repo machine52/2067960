@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
+{% block titulo %}
+Agregar marca
+{% endblock titulo %}
+
 {% block contenido %}
-    <a href="{% url 'agregar_producto' %}" class="btn-primary">Agregar un Producto</a>
-    <a href="{% url 'agregar_marca' %}" class="btn-primary">Agregar un Marca</a>
-    <a href="{% url 'agregar_categoria' %}" class="btn-primary">Agregar un Categoria</a>
+ <p><a href="{% url 'agregar_producto' %}" >agregar productos</a></p>
+ <p><a href="{% url 'agregar_marca' %}" >Agregar un Marca</a></p>
+ <p></p><a href="{% url 'agregar_categoria' %}" >Agregar un Categoria</a></p>
 
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
