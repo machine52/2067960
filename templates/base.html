@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>
         {% block titulo %}
         {% endblock titulo %}
@@ -14,8 +15,8 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <img src="/static/img/logo.png" alt="" width="90px">
+      <a class="navbar-brand" href="#">Cosecha de pachamama</a>
+      <img src="/static/img/pacha.png" alt="" width="250px">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -25,7 +26,16 @@
             <a class="nav-link active" aria-current="page" href="{% url 'about_view' %}">About</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'inicio_view' %}">Inicio</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'productos_view' %}">productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'login_view' %}">login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'register_view' %}">register</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link active" aria-current="page" href="{% url 'contacto_view' %}">Contacto</a>
